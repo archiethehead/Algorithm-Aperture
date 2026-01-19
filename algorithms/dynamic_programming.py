@@ -7,7 +7,7 @@ def nth_fibonacci(n: int) -> int:
  
     Returns:
         0: When n == 0
-        Fibonacci number equal to n: When n > 1
+        nth Fibonacci/Negafibonacci number
  
     Raises:
         ValueError: If n is not an integer.
