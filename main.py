@@ -84,6 +84,8 @@ class algorithm_facade():
                 return encryption.rsa_entry(encrypting, data, rsa_key)
             else:
                 return encryption.rsa_entry(encrypting, data)
+        
+        return ''
     
 
 
@@ -152,7 +154,7 @@ class algorithm_aperture():
         self.combobox.current(0)
 
         self.execute_button = tk.Button(text = "Execute", command = self.execute_command)
-        self.execute_button.place(x=0,y=130)
+        self.execute_button.place(x=0,y=210)
 
         self.text_box = tk.Text(width = "80", height = "30", background = "#ffffff",
                                    font = ("Courier new",10))
@@ -165,7 +167,7 @@ class algorithm_aperture():
         public_key_entry_lbl.place(x=0,y=185)
 
         self.encrypt_button = tk.Button(text = "Encrypt", command = self.set_encrypt)
-        self.encrypt_button.place(x=0,y=210)
+        self.encrypt_button.place(x=0,y=130)
 
     def clear_window(self):
         for widgets in screen.winfo_children():
