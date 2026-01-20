@@ -6,6 +6,21 @@ from algorithms import recursion
 from algorithms import randomised
 from algorithms import search
 from algorithms import brute_force
+from algorithms import encryption
+
+# Encryption
+class Test_encryption:
+    @pytest.mark.parametrize("encrypting, message, expected", [
+        (True, "Hello", "660 1607 1267 1267 2634"), 
+    ])
+    def test_encryption(self, encrypting, message, expected):
+        assert encryption.rsa_entry(encrypting, message) == expected
+    
+
+encryption_data = [True, "Hello"]
+
+def test_encryption_performance(benchmark):
+    benchmark(encryption.rsa_entry, encryption_data[0], encryption_data[1])
 
 # Dynamic Programming
 

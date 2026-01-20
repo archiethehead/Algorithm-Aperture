@@ -1,5 +1,5 @@
 
-import sorting
+from algorithms import sorting
 
 def search(data: list[int | float]) -> dict[str, int | float]:
     """Search an array for various statistical values.
