@@ -67,24 +67,24 @@ def test_palindrome(benchmark):
 class Test_sort:
 
     def test_selection_sort(self, data, ascending, expected):
-        assert sorting.selection_sort(data.copy(), ascending) == expected
+        assert sorting.selection_sort(data, ascending) == expected
 
     def test_bubble_sort(self, data, ascending, expected):
-        assert sorting.bubble_sort(data.copy(), ascending) == expected
+        assert sorting.bubble_sort(data, ascending) == expected
     
     def test_merge_sort(self, data, ascending, expected):
-        assert brute_force.merge_sort(data.copy(), ascending) == expected
+        assert brute_force.merge_sort(data, ascending) == expected
 
 sort_data = [random.randint(0, 1000) for x in range(1000)]
 
 def test_selection_sort_performance(benchmark):
-    benchmark(sorting.selection_sort, sort_data.copy(), True)
+    benchmark(sorting.selection_sort, sort_data, True)
 
 def test_bubble_sort_performance(benchmark):
-    benchmark(sorting.bubble_sort, sort_data.copy(), True)
+    benchmark(sorting.bubble_sort, sort_data, True)
 
 def test_merge_sort_performance(benchmark):
-    benchmark(brute_force.merge_sort, sort_data.copy(), True)
+    benchmark(brute_force.merge_sort, sort_data, True)
 
 
 

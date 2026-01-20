@@ -112,6 +112,3 @@ class palindrome_counter():
     
 #GeeksforGeeks (2016). Palindrome Substrings Count. [online] GeeksforGeeks. 
 #Available at: https://www.geeksforgeeks.org/dsa/count-palindrome-sub-strings-string/.
-
-counter = palindrome_counter()
-print(counter.check_substring("())("))

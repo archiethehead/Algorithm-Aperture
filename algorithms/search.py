@@ -82,5 +82,3 @@ def search(data: list[int | float]) -> dict[str, int | float]:
         "Q3": Q3,
         "Mode": mode_value
     }
-
-print(search([1,1,2,3,4,5,6,7,8,9]))

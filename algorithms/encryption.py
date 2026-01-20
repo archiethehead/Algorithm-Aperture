@@ -144,5 +144,3 @@ def rsa_entry(encrypting: bool, message: str, keys: list[int, int, int] | bool =
 
 #GeeksforGeeks (2017). RSA Algorithm in Cryptography. [online] GeeksforGeeks. 
 #Available at: https://www.geeksforgeeks.org/computer-networks/rsa-algorithm-cryptography/.
-
-print(rsa_entry(True, message="Hello"))
