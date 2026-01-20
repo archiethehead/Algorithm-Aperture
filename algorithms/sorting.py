@@ -1,5 +1,5 @@
 
-def selection_sort(unsorted_list: list[int | float], ascending: bool) -> list[int | float]:
+def selection_sort(unsorted_list: list[int | float], ascending: bool = True) -> list[int | float]:
     """Sort a given array with the selection sort method.
  
     Args:
@@ -39,6 +39,7 @@ def selection_sort(unsorted_list: list[int | float], ascending: bool) -> list[in
                     if unsorted_list[x:][y] > smallest:
                         smallest = unsorted_list[x:][y]
                         smallest_index = y + x
+                        
             #This is the earliest point a type error can be caught wihtout interupting execution.
             except TypeError:
                 raise TypeError("List must contain only integer and float variables.")
@@ -49,7 +50,7 @@ def selection_sort(unsorted_list: list[int | float], ascending: bool) -> list[in
 
     return unsorted_list
 
-def bubble_sort(unsorted_list: list[int | float], ascending: bool) -> list[int | float]:
+def bubble_sort(unsorted_list: list[int | float], ascending: bool = True) -> list[int | float]:
     """Sort a given array with the bubble sort method.
  
     Args:

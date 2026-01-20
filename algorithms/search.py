@@ -49,20 +49,20 @@ def search(data: list[int | float]) -> dict[str, int | float]:
 
     #Median positioning changes based on the even/odd state of an array.
     if odd:
-        median_value = sorted_data[int(data_length / 2)]
-        first_half = sorted_data[0:int(data_length / 2)]
-        second_half = sorted_data[int(data_length / 2) + 1:]
+        median_value = sorted_data[(data_length // 2)]
+        first_half = sorted_data[0:(data_length // 2)]
+        second_half = sorted_data[(data_length // 2) + 1:]
     else:
-        median_value = (sorted_data[int((data_length / 2)) - 1] + sorted_data[int(data_length / 2)]) / 2
-        first_half = sorted_data[0:int(data_length / 2)]
-        second_half = sorted_data[int(data_length / 2):]
+        median_value = (sorted_data[((data_length // 2)) - 1] + sorted_data[(data_length // 2)]) / 2
+        first_half = sorted_data[0:(data_length // 2)]
+        second_half = sorted_data[(data_length // 2):]
     
     if odd:
-        Q1 = (first_half[int(len(first_half) / 2) - 1] + first_half[int(len(first_half) / 2)]) / 2
-        Q3 = (second_half[int(len(second_half) / 2) - 1] + second_half[int(len(second_half) / 2)]) / 2
+        Q1 = (first_half[(len(first_half) // 2) - 1] + first_half[(len(first_half) // 2)]) / 2
+        Q3 = (second_half[(len(second_half) // 2) - 1] + second_half[(len(second_half) // 2)]) / 2
     else:
-        Q1 = first_half[int(len(first_half) / 2)]
-        Q3 = second_half[int(len(second_half) / 2)]
+        Q1 = first_half[(len(first_half) // 2)]
+        Q3 = second_half[(len(second_half) // 2)]
     
     mode = {}
     for num in sorted_data:

@@ -5,6 +5,7 @@ from algorithms import sorting
 from algorithms import recursion
 from algorithms import randomised
 from algorithms import search
+from algorithms import brute_force
 
 # Dynamic Programming
 
@@ -24,12 +25,12 @@ fib_data = 1000
 def test_mth_fibonacci_performance(benchmark):
     benchmark(dynamic_programming.nth_fibonacci, fib_data)
 
+# Sorting Algorithms
+
 @pytest.mark.parametrize("data, ascending, expected", [
         ([1, 2, 5, 6, 3, 2, -1], True, [-1, 1, 2, 2, 3, 5, 6]), 
         ([1, 2, 5, 6, 3, 2, -1], False, [6, 5, 3, 2, 2, 1, -1])
     ])
-
-# Sorting Algorithms
 
 class Test_sort:
 
@@ -38,6 +39,9 @@ class Test_sort:
 
     def test_bubble_sort(self, data, ascending, expected):
         assert sorting.bubble_sort(data.copy(), ascending) == expected
+    
+    def test_merge_sort(self, data, ascending, expected):
+        assert brute_force.merge_sort(data.copy(), ascending) == expected
 
 sort_data = [random.randint(0, 1000) for x in range(1000)]
 
@@ -46,6 +50,11 @@ def test_selection_sort_performance(benchmark):
 
 def test_bubble_sort_performance(benchmark):
     benchmark(sorting.bubble_sort, sort_data.copy(), True)
+
+def test_merge_sort_performance(benchmark):
+    benchmark(brute_force.merge_sort, sort_data.copy(), True)
+
+
 
 # Randomisation
 
