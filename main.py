@@ -38,10 +38,7 @@ class sort_abstraction():
     def execute(self, data, ascending):
         return self.function(data, ascending)
     
-class single_var_abstraction():
-
-    def __init__(self, method):
-        self.function = method
+class single_var_abstraction(sort_abstraction):
     
     def execute(self, data):
         return self.function(data)
