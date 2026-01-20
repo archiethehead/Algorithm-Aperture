@@ -44,13 +44,13 @@ def modular_inverse(e: int, phi: int) -> int:
     return -1
 
 
-def power(base: int, expoent: int, m: int) -> int:
+def power(base: int, expoent: int, modulus: int) -> int:
     """Performs modulo arithmetic on the message with the exponents (keys).
  
     Args:
         base(int): the given character in ASCII format
         exponent(int): public/private key
-        m(int): public key
+        modulus(int): public key
  
     Returns:
         output(int): encrypted/decrypted character
@@ -64,12 +64,12 @@ def power(base: int, expoent: int, m: int) -> int:
     """
 
     output = 1
-    base = base % m
+    base = base % modulus
 
     while expoent > 0:
         if expoent & 1:
-            output = (output * base) % m
-        base = (base * base) % m
+            output = (output * base) % modulus
+        base = (base * base) % modulus
         expoent = expoent // 2
 
     return output

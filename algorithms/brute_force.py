@@ -44,9 +44,6 @@ def merge_sort(unsorted_list: list[int | float], ascending: bool = True) -> list
     left_merge_sort = merge_sort(left, ascending)
     right_merge_sort = merge_sort(right, ascending)
 
-    print(left_merge_sort)
-    print(right_merge_sort)
-
     return merge(left_merge_sort, right_merge_sort, ascending)
 
 
@@ -98,5 +95,3 @@ def merge(left: list[int | float], right: list[int | float], ascending: bool = T
     sorted_list.extend(left[x:])
     sorted_list.extend(right[y:])
     return sorted_list
-
-print(merge_sort([1,2,3,4,53,2,2,3,4]))
