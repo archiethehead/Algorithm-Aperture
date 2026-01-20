@@ -4,6 +4,7 @@ from algorithms import dynamic_programming
 from algorithms import sorting
 from algorithms import recursion
 from algorithms import randomised
+from algorithms import search
 
 # Dynamic Programming
 
@@ -72,3 +73,17 @@ factorial_data = 50
 
 def test_factorial_performance(benchmark):
     benchmark(recursion.factorial, factorial_data)
+
+# Search
+
+class Test_search:
+    @pytest.mark.parametrize("data, expected", [
+        ([1,1,2,3,4,5,6,7,8,9], {'smallest': 1, 'largest': 9, 'median': 4.5, 'Q1': 2, 'Q3': 7, 'Mode': [1]})
+    ])
+    def test_search_func(self, data, expected):
+        assert search.search(data) == expected
+
+search_data = [1,1,2,3,4,5,6,7,8,9]
+
+def test_search_performance(benchmark):
+    benchmark(search.search, search_data)

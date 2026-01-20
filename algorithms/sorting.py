@@ -10,7 +10,7 @@ def selection_sort(unsorted_list: list[int | float], ascending: bool) -> list[in
         Sorted version of unsorted_list.
  
     Raises:
-        ValueError: If n is not an integer, or ascending is not a boolean.
+        ValueError: If the listr contains a non numeric value, or ascending is not a boolean.
  
     Examples:
         >>> selection_sort([10,2,4], True)
