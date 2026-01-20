@@ -169,11 +169,6 @@ class algorithm_aperture():
         self.encrypt_button = tk.Button(text = "Encrypt", command = self.set_encrypt)
         self.encrypt_button.place(x=0,y=130)
 
-    def clear_window(self):
-        for widgets in screen.winfo_children():
-            widgets.destroy()
-        self.create_window()
-
 screen = tk.Tk()
 window = algorithm_aperture()
 window.create_window()
