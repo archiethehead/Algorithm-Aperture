@@ -65,7 +65,10 @@ class algorithm_facade():
         if algorithm != "Palindrome" and algorithm != "RSA" and data != '':
             data = data.split(',')
             for x in range(len(data)):
-                data[x] = int(data[x])
+                try:
+                    data[x] = int(data[x])
+                except ValueError:
+                    data[x] = float(data[x])
 
         if algorithm in self.sort_strategies:
             return self.sort_strategies[algorithm].execute(data, ascending)
