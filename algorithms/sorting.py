@@ -29,20 +29,20 @@ def selection_sort(unsorted_list: list[int | float], ascending: bool = True) -> 
         smallest_index = 0
 
         #Index is sliced to check every element after the current one (preivous elements are sorted).
-        for y in range(len(unsorted_list[x:])):
+        for y in range(x + 1, len(unsorted_list)):
             try:
                 if ascending:
-                    if unsorted_list[x:][y] < smallest:
-                        smallest = unsorted_list[x:][y]
-                        smallest_index = y + x
+                    if unsorted_list[y] < smallest:
+                        smallest = unsorted_list[y]
+                        smallest_index = y
                 else:
-                    if unsorted_list[x:][y] > smallest:
-                        smallest = unsorted_list[x:][y]
-                        smallest_index = y + x
-                        
-            #This is the earliest point a type error can be caught wihtout interupting execution.
+                    if unsorted_list[y] > smallest:
+                        smallest = unsorted_list[y]
+                        smallest_index = y
             except TypeError:
-                raise TypeError("List must contain only integer and float variables.")
+                raise TypeError("List must contain only integer and float variables.")            
+            #This is the earliest point a type error can be caught wihtout interupting execution.
+
 
         #If a smaller value isn't found, smallest_index isn't updated, and no swap occurs.
         if smallest_index > 0:
