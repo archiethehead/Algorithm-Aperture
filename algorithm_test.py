@@ -3,6 +3,9 @@ import random
 from algorithms import dynamic_programming
 from algorithms import sorting
 from algorithms import recursion
+from algorithms import randomised
+
+# Dynamic Programming
 
 class Test_fibonacci:
     @pytest.mark.parametrize("n, expected", [
@@ -25,6 +28,8 @@ def test_mth_fibonacci_performance(benchmark):
         ([1, 2, 5, 6, 3, 2, -1], False, [6, 5, 3, 2, 2, 1, -1])
     ])
 
+# Sorting Algorithms
+
 class Test_sort:
 
     def test_selection_sort(self, data, ascending, expected):
@@ -41,7 +46,20 @@ def test_selection_sort_performance(benchmark):
 def test_bubble_sort_performance(benchmark):
     benchmark(sorting.bubble_sort, sort_data.copy(), True)
 
-class Test_factoriali:
+# Randomisation
+
+def test_randomisation():
+    deck_1 = randomised.shuffle_deck()
+    deck_2 =  randomised.shuffle_deck()
+
+    assert deck_1 != deck_2, "The shuffle produced identical results twice."
+
+def test_randomisation_performance(benchmark):
+    benchmark(randomised.shuffle_deck)
+
+# Recursion
+
+class Test_factorial:
     @pytest.mark.parametrize("n, expected", [
         (6, 720), 
         (50, 30414093201713378043612608166064768844377641568960512000000000000), 
