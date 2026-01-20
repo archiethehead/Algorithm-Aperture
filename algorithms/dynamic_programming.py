@@ -1,13 +1,13 @@
 
 def nth_fibonacci(n: int) -> int:
-    """Calculate the nth fibonacci number
+    """Calculate the nth fibonacci number.
  
     Args:
-        n (integer): the number of times the fibonacci sequence will be carried out
+        n (integer): the number of times the fibonacci sequence will be carried out.
  
     Returns:
         0: When n == 0
-        nth Fibonacci/Negafibonacci number
+        nth Fibonacci/Negafibonacci number.
  
     Raises:
         ValueError: If n is not an integer.
@@ -21,7 +21,7 @@ def nth_fibonacci(n: int) -> int:
 
     #Fibonacci numbers can only be integers, not any other type of numeric or non-numeric value (e.g, float, string).
     if not isinstance(n, int):
-        raise ValueError("Input must be an integer.")
+        raise TypeError("Input must be an integer.")
     
     if n == 0:
         return 0
