@@ -51,7 +51,7 @@ class algorithm_facade():
 
     def execute_algorithm(self, algorithm, data, ascending, rsa_key, encrypting):
          
-        if algorithm != "Palindrome" and algorithm != "RSA":
+        if algorithm != "Palindrome" and algorithm != "RSA" and data != '':
             data = data.split(',')
             for x in range(len(data)):
                 data[x] = int(data[x])
