@@ -68,7 +68,7 @@ class algorithm_facade():
                 data[x] = int(data[x])
 
         if algorithm in self.sort_strategies:
-            return self.strategies[algorithm].execute(data, ascending)
+            return self.sort_strategies[algorithm].execute(data, ascending)
         
         if algorithm in self.single_var_strategies:
             return self.single_var_strategies[algorithm].execute(data[0])
