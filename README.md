@@ -6,7 +6,7 @@ The following commmand will download the repository to an empty directory of you
 > git clone https://github.com/archiethehead/Algorithm-Aperture
 
 ## Quick Start
-
+Simply launch main.py to interact with each of the algorithms bundled with this project.
 
 ## Contributors
 Mr. Archie T. Healy - archiehealy06@gmail.com
