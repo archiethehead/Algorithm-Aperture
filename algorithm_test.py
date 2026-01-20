@@ -7,6 +7,7 @@ from algorithms import randomised
 from algorithms import search
 from algorithms import brute_force
 from algorithms import encryption
+from main import state_manager
 
 # Encryption
 class Test_encryption:
@@ -128,3 +129,25 @@ search_data = [1,1,2,3,4,5,6,7,8,9]
 
 def test_search_performance(benchmark):
     benchmark(search.search, search_data)
+
+# Design Patterns
+
+@pytest.fixture
+def manager():
+    return state_manager()
+
+def test_singleton_identity(manager):
+    another_manager = state_manager()
+    assert manager is another_manager
+
+def test_sorting_facade(manager):
+    result = manager.facade.execute_algorithm("Bubble Sort", "3,1,2", True, "", True)
+    assert result == [1, 2, 3]
+
+def test_factorial_abstraction(manager):
+    result = manager.facade.execute_algorithm("Factorial", "5", True, "", True)
+    assert result == 120
+
+def test_invalid_input_handling(manager):
+    with pytest.raises(ValueError):
+        manager.facade.execute_algorithm("Selection Sort", "apple,orange", True, "", True)
