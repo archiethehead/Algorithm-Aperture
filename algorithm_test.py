@@ -2,6 +2,7 @@ import pytest
 import random
 from algorithms import dynamic_programming
 from algorithms import sorting
+from algorithms import recursion
 
 class Test_fibonacci:
     @pytest.mark.parametrize("n, expected", [
@@ -14,7 +15,7 @@ class Test_fibonacci:
     def test_nth_fibonacci(self, n, expected):
         assert dynamic_programming.nth_fibonacci(n) == expected
 
-fib_data = random.randint(0,1000)
+fib_data = 1000
 
 def test_mth_fibonacci_performance(benchmark):
     benchmark(dynamic_programming.nth_fibonacci, fib_data)
@@ -39,3 +40,17 @@ def test_selection_sort_performance(benchmark):
 
 def test_bubble_sort_performance(benchmark):
     benchmark(sorting.bubble_sort, sort_data.copy(), True)
+
+class Test_factoriali:
+    @pytest.mark.parametrize("n, expected", [
+        (6, 720), 
+        (50, 30414093201713378043612608166064768844377641568960512000000000000), 
+        (-3, 6), 
+    ])
+    def test_nth_fibonacci(self, n, expected):
+        assert recursion.factorial(n) == expected
+
+factorial_data = 50
+
+def test_factorial_performance(benchmark):
+    benchmark(recursion.factorial, factorial_data)

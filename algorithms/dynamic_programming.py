@@ -3,7 +3,7 @@ def nth_fibonacci(n: int) -> int:
     """Calculate the nth fibonacci number.
  
     Args:
-        n (integer): the number of times the fibonacci sequence will be carried out.
+        n (Integer): the number of times the fibonacci sequence will be carried out.
  
     Returns:
         0: When n == 0
