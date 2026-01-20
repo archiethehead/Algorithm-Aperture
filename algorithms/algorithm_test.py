@@ -19,11 +19,28 @@ class Test_fibonacci:
     ])
     def test_nth_fibonacci(self, n, expected):
         assert dynamic_programming.nth_fibonacci(n) == expected
+    
+class Test_palindrome:
+
+    counter = dynamic_programming.palindrome_counter()
+
+    @pytest.mark.parametrize("string, expected", [
+        ("abba", 6), 
+        ("())(", 6), 
+    ])
+
+    def test_palindrome(self, string, expected):
+        assert self.counter.check_substring(string) == expected
 
 fib_data = 1000
 
-def test_mth_fibonacci_performance(benchmark):
+def test_nth_fibonacci_performance(benchmark):
     benchmark(dynamic_programming.nth_fibonacci, fib_data)
+
+palindrome = "())("
+def test_palindrome(benchmark):
+    counter = dynamic_programming.palindrome_counter()
+    benchmark(counter.check_substring, palindrome)
 
 # Sorting Algorithms
 
