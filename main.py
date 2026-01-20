@@ -37,14 +37,28 @@ class sort_abstraction():
     
     def execute(self, data, ascending):
         return self.function(data, ascending)
+    
+class single_var_abstraction():
+
+    def __init__(self, method):
+        self.function = method
+    
+    def execute(self, data):
+        return self.function(data)
 
 #Facade pattern, structural design pattern
 class algorithm_facade():
     def __init__(self):
-        self.strategies = {
-             'Selection Sort': sort_abstraction(sorting.selection_sort),
-             'Bubble Sort': sort_abstraction(sorting.bubble_sort),
-             'Merge Sort': sort_abstraction(brute_force.merge_sort)
+        self.sort_strategies = {
+            'Selection Sort': sort_abstraction(sorting.selection_sort),
+            'Bubble Sort': sort_abstraction(sorting.bubble_sort),
+            'Merge Sort': sort_abstraction(brute_force.merge_sort),
+        }
+
+        self.single_var_strategies = {
+            'Factorial': single_var_abstraction(recursion.factorial),
+            'Fibonacci': single_var_abstraction(dynamic_programming.nth_fibonacci)
+
         }
          
         self.palindrome_counter = dynamic_programming.palindrome_counter()
@@ -56,8 +70,11 @@ class algorithm_facade():
             for x in range(len(data)):
                 data[x] = int(data[x])
 
-        if algorithm in self.strategies:
+        if algorithm in self.sort_strategies:
             return self.strategies[algorithm].execute(data, ascending)
+        
+        if algorithm in self.single_var_strategies:
+            return self.single_var_strategies[algorithm].execute(data[0])
         
         if algorithm == "Palindrome":
             return self.palindrome_counter.check_substring(data)
@@ -65,14 +82,6 @@ class algorithm_facade():
         if algorithm == "Card Shuffle":
             return randomised.shuffle_deck()
         
-        if algorithm == "Factorial":
-            n = int(data[0])
-            return recursion.factorial(n)
-    
-        if algorithm == "Fibonacci":
-            n = int(data[0])
-            return dynamic_programming.nth_fibonacci(n)
-
         if algorithm == "Search":
             return search.search(data)
 
